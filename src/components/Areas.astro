@@ -1,0 +1,62 @@
+---
+const locations = [
+  'Bergen County', 'Passaic County', 'Hudson County', 'Essex County', 'Union County', 'Morris County',
+  'Clifton', 'Paramus', 'Hackensack', 'Newark', 'Paterson',
+];
+
+const pins = [
+  { color: '#48a536', x: 118, y: 66 },
+  { color: '#159bd8', x: 96, y: 92 },
+  { color: '#5b3296', x: 112, y: 104 },
+  { color: '#ff6a28', x: 92, y: 132 },
+  { color: '#e8af08', x: 104, y: 164 },
+];
+
+const njOutline = `M104 14 L120 30 L126 52 L118 64 L128 74 L150 82 L156 100 L150 120 L160 132
+  L152 152 L158 172 L146 196 L142 224 L128 252 L118 286 L108 306 L100 288 L96 262 L88 236
+  L82 208 L74 182 L66 156 L60 128 L66 108 L60 86 L70 68 L64 46 L78 28 Z`;
+---
+
+<section class="section" id="areas" style="background: var(--soft)">
+  <div class="wrap serve-layout">
+    <div class="serve-card map-card reveal" aria-label="Map of New Jersey showing service areas">
+      <svg viewBox="0 0 220 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="nj-map">
+        <path class="nj-glow" d={njOutline} fill="rgba(91,50,150,.06)"></path>
+        <path
+          class="nj-shape"
+          d={njOutline}
+          fill="none"
+          stroke="rgba(91,50,150,.5)"
+          stroke-width="2.4"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+        ></path>
+        <polyline
+          class="nj-route"
+          points="118,66 96,92 112,104 92,132 104,164"
+          fill="none"
+          stroke="rgba(91,50,150,.35)"
+          stroke-width="1.6"
+          stroke-dasharray="3 5"
+          stroke-linecap="round"
+        ></polyline>
+        <g class="pins">
+          {pins.map((pin) => (
+            <g class="pin" style={`--c:${pin.color}`}>
+              <circle class="ripple" cx={pin.x} cy={pin.y} r="7"></circle>
+              <circle class="core" cx={pin.x} cy={pin.y} r="6.5"></circle>
+            </g>
+          ))}
+        </g>
+      </svg>
+    </div>
+    <div class="serve-card reveal" data-d="1">
+      <div class="kicker">Areas We Serve</div>
+      <h2 style="font-size: clamp(1.8rem,3.2vw,2.8rem)">Proudly serving businesses across Northern New Jersey.</h2>
+      <p class="large-copy">Schlager Solutions Group partners with companies throughout Bergen, Passaic, Essex, Hudson, Morris, Union, and surrounding communities.</p>
+      <div class="location-links">
+        {locations.map((location) => <a href="#">{location}</a>)}
+      </div>
+    </div>
+  </div>
+</section>

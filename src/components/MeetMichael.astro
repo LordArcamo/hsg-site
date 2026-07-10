@@ -1,0 +1,39 @@
+---
+import ArrowIcon from './ArrowIcon.astro';
+---
+
+<section class="section" id="michael">
+  <div class="wrap">
+    <div class="panel michael">
+      <figure class="portrait reveal" style="margin:0" id="portrait">
+        <img
+          src="/michael.jpg"
+          alt="Portrait of Michael Schlager, founder and principal advisor"
+          loading="lazy"
+          onerror="this.closest('.portrait').classList.add('img-failed')"
+        />
+        <figcaption>Michael Schlager</figcaption>
+      </figure>
+      <div>
+        <div class="kicker reveal">Meet Michael Schlager</div>
+        <h2 class="reveal" data-d="1">Business challenges rarely fit into one category.</h2>
+        <p class="large-copy reveal" data-d="1">
+          For more than 25 years, Michael Schlager has worked alongside business owners, executives,
+          HR leaders, and professionals across New Jersey — solving challenges involving executive recruiting,
+          business growth, leadership development, HR strategy, and executive careers.
+        </p>
+        <div class="reveal" data-d="2">
+          <p class="m-quote">My role isn't to sell you a service.</p>
+          <p class="m-quote"><b>It's to help you make the right decision.</b></p>
+        </div>
+        <div class="metrics reveal" data-d="2">
+          <div class="metric"><strong>25+</strong><span>years of advisory experience</span></div>
+          <div class="metric"><strong>6</strong><span>NJ counties served</span></div>
+          <div class="metric"><strong>1</strong><span>trusted decision partner</span></div>
+        </div>
+        <div class="signature reveal" data-d="3">Michael Schlager<small>Founder &amp; Principal Advisor</small></div>
+        <a class="button button-secondary reveal" data-d="3" href="#contact">About Michael <ArrowIcon size={15} /></a>
+      </div>
+    </div>
+  </div>
+</section>

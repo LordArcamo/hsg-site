@@ -1,0 +1,43 @@
+---
+const industries = [
+  { label: 'Healthcare', dot: 'var(--green)' },
+  { label: 'Manufacturing', dot: 'var(--blue)' },
+  { label: 'Construction', dot: 'var(--gold)' },
+  { label: 'Professional Services', dot: 'var(--purple)' },
+  { label: 'Technology', dot: 'var(--orange)' },
+  { label: 'Insurance', dot: 'var(--blue)' },
+  { label: 'Financial Services', dot: 'var(--green)' },
+  { label: 'Family Businesses', dot: 'var(--purple)' },
+  { label: 'Logistics', dot: 'var(--orange)' },
+  { label: 'Nonprofit', dot: 'var(--gold)' },
+];
+
+// two counter-scrolling ribbons; content repeated so the loop never shows a gap
+const rows = [industries.slice(0, 5), industries.slice(5)];
+const repeat = 3;
+---
+
+<section class="section" id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Industries</div>
+      <h2>Built for the industries that power New Jersey business.</h2>
+    </div>
+  </div>
+  <div class="ind-marquee reveal" data-d="1">
+    {rows.map((row, r) => (
+      <div class={r === 1 ? 'ind-row rev' : 'ind-row'}>
+        <div class="ind-track">
+          {Array.from({ length: repeat }).flatMap(() => row).map((industry) => (
+            <a class="industry" href="#" style={`--dot: ${industry.dot}`}>{industry.label}</a>
+          ))}
+        </div>
+        <div class="ind-track" aria-hidden="true">
+          {Array.from({ length: repeat }).flatMap(() => row).map((industry) => (
+            <a class="industry" href="#" style={`--dot: ${industry.dot}`} tabindex="-1">{industry.label}</a>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

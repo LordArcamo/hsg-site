@@ -1,0 +1,64 @@
+---
+const columns = [
+  {
+    title: 'Solutions',
+    links: [
+      { label: 'Business Growth', href: '#' },
+      { label: 'Executive Recruiting', href: '#' },
+      { label: 'Leadership Coaching', href: '#' },
+      { label: 'HR Consulting', href: '#' },
+      { label: 'Executive Careers', href: '#' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { label: 'About Michael', href: '#michael' },
+      { label: 'Industries', href: '#industries' },
+      { label: 'Growth Stories', href: '#' },
+      { label: 'Contact', href: '#contact' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Insights', href: '#insights' },
+      { label: 'Newsletter', href: '#' },
+      { label: 'Podcast', href: '#' },
+      { label: 'Videos', href: '#' },
+    ],
+  },
+  {
+    title: 'Connect',
+    links: [
+      { label: '347-665-7733', href: 'tel:13476657733' },
+      { label: 'LinkedIn', href: '#' },
+      { label: 'YouTube', href: '#' },
+      { label: 'Locations', href: '#areas' },
+    ],
+  },
+];
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark">S</span><span class="brand-name">Schlager Solutions Group</span></a>
+        <p style="margin-top: 18px">Trusted advisory for business, leadership, hiring, HR, and executive career decisions across New Jersey.</p>
+      </div>
+      {columns.map((column) => (
+        <div>
+          <h4>{column.title}</h4>
+          {column.links.map((link) => <a href={link.href}>{link.label}</a>)}
+        </div>
+      ))}
+    </div>
+    <div class="footer-bottom">
+      <span>© {year} Schlager Solutions Group. Serving Northern New Jersey.</span>
+      <span>Sample homepage concept · Easy4Host Agency</span>
+    </div>
+  </div>
+</footer>

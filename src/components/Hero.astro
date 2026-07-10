@@ -1,0 +1,54 @@
+---
+import ArrowIcon from './ArrowIcon.astro';
+import CountUp from './react/CountUp.tsx';
+
+const services = ['Business Strategy', 'Executive Recruiting', 'Leadership', 'HR', 'Executive Careers'];
+---
+
+<section class="hero">
+  <div class="wrap hero-layout">
+    <div class="hero-content">
+      <div class="eyebrow reveal">25+ years serving New Jersey businesses</div>
+      <h1 class="reveal" data-d="1">
+        {['The', 'Right', 'Decisions'].map((word, i) => (
+          <span class="hw"><span style={`--i:${i}`}>{word}</span></span>
+        ))}
+        <span class="h1-accent">
+          {['Change', 'Everything.'].map((word, i) => (
+            <span class="hw"><span style={`--i:${i + 3}`}>{word}</span></span>
+          ))}
+        </span>
+      </h1>
+      <p class="hero-lede reveal" data-d="2">
+        Trusted business advisory for growing companies across New Jersey — connecting strategy,
+        executive recruiting, leadership development, HR, and executive career guidance under one relationship.
+      </p>
+      <ul class="service-line reveal" data-d="2">
+        {services.map((service) => <li>{service}</li>)}
+      </ul>
+      <div class="cta-row reveal" data-d="3">
+        <a class="button button-primary" href="#contact">Book Strategy Call <ArrowIcon /></a>
+        <a class="button button-secondary" href="#solutions">Explore Solutions</a>
+      </div>
+    </div>
+    <figure class="hero-visual reveal" data-d="2" style="margin:0" id="heroVisual">
+      <img
+        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1100&q=80"
+        alt="Michael Schlager advising a group of business owners and executives"
+        loading="eager"
+        onerror="this.closest('.hero-visual').classList.add('img-failed')"
+      />
+      <div class="hv-badge">
+        <span class="dots">
+          <i style="background:var(--green)"></i><i style="background:var(--blue)"></i><i style="background:var(--gold)"></i><i style="background:var(--orange)"></i><i style="background:var(--purple)"></i>
+        </span>
+        One trusted advisor
+      </div>
+      <div class="hero-stat">
+        <div><strong><CountUp client:visible target={25} />+</strong><span>years</span></div>
+        <div><strong>NJ</strong><span>business focus</span></div>
+        <div><strong><CountUp client:visible target={5} /></strong><span>growth paths</span></div>
+      </div>
+    </figure>
+  </div>
+</section>

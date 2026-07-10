@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <circle cx="32" cy="32" r="26" fill="#ffffff"/>
+  <path d="M32 6a26 26 0 0 1 0 52" fill="none" stroke="#48a536" stroke-width="6" stroke-linecap="round"/>
+  <path d="M32 58a26 26 0 0 1 0-52" fill="none" stroke="#5b3296" stroke-width="6" stroke-linecap="round"/>
+  <text x="32" y="43" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="900" fill="#5b3296" text-anchor="middle">S</text>
+</svg>

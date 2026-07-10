@@ -1,0 +1,27 @@
+---
+const steps = [
+  { color: 'var(--green)', title: 'Listen', copy: 'Understand your business, goals, and challenges.', d: undefined },
+  { color: 'var(--blue)', title: 'Discover', copy: 'Identify the real opportunities and obstacles.', d: '1' },
+  { color: 'var(--purple)', title: 'Build', copy: 'Create a practical roadmap for success.', d: '2' },
+  { color: 'var(--orange)', title: 'Implement', copy: 'Execute with the right strategy, leadership, talent, and HR solutions.', d: '3' },
+  { color: 'var(--gold)', title: 'Grow', copy: 'Keep building stronger leaders and sustainable long-term success.', d: '4' },
+];
+---
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">The Schlager Advisory Process&trade;</div>
+      <h2>Every engagement begins with understanding your business — not selling a service.</h2>
+    </div>
+    <div class="process-grid">
+      {steps.map((step, i) => (
+        <div class="process-step reveal" data-d={step.d} style={`--step-c: ${step.color}`}>
+          <div class="proc-num">{i + 1}</div>
+          <h3>{step.title}</h3>
+          <p>{step.copy}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

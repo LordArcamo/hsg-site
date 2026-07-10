@@ -1,0 +1,41 @@
+---
+import ArrowIcon from './ArrowIcon.astro';
+---
+
+<section class="section" style="background: var(--soft)">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="kicker">Growth Stories</div>
+      <h2>Clear decisions. Stronger outcomes.</h2>
+    </div>
+    <div class="story-grid">
+      <article class="story-card featured reveal">
+        <figure class="story-media" style="margin:0" id="storyMedia">
+          <img
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
+            alt="A leadership team working together in a modern office"
+            loading="lazy"
+            onerror="this.closest('.story-media').classList.add('img-failed')"
+          />
+        </figure>
+        <div class="story-inner">
+          <div class="kicker">Client Story · Manufacturing</div>
+          <h3 style="font-size:1.5rem; margin-bottom:8px;">Aligning leadership, hiring, and structure for a family manufacturer.</h3>
+          <p>A practical advisory engagement turned disconnected people challenges into a clear growth plan.</p>
+          <div class="story-flow">
+            <div><span>Challenge</span>Growth had outpaced structure.</div>
+            <div><span>Solution</span>Clarified leadership needs and hiring priorities.</div>
+            <div><span>Results</span>A stronger team with a clear path forward.</div>
+          </div>
+        </div>
+      </article>
+      <article class="story-card story-side reveal" data-d="1">
+        <div class="kicker">Decision Framework</div>
+        <h3 style="font-size:1.5rem;">From one urgent hire to a better leadership plan.</h3>
+        <p>Executive search becomes far more valuable when it also reveals what the organization needs next — not just the seat you're filling today.</p>
+        <a class="button button-secondary" href="#" style="align-self:flex-start; margin-top:12px;">Read Story <ArrowIcon size={15} /></a>
+        <p class="story-note">Illustrative composite — replace with your real client growth stories.</p>
+      </article>
+    </div>
+  </div>
+</section>

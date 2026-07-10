@@ -1,0 +1,36 @@
+---
+import Diagram from './react/Diagram.tsx';
+
+const nodes = [
+  { color: 'var(--green)', title: 'Business Strategy', copy: 'Growth plans, operations, revenue, succession, and practical next steps.', d: undefined },
+  { color: 'var(--blue)', title: 'Leadership', copy: 'Coaching and development for owners, executives, and managers.', d: '1' },
+  { color: 'var(--purple)', title: 'Executive Talent', copy: 'Search, recruiting, confidential hiring, and leadership succession.', d: '2' },
+  { color: 'var(--orange)', title: 'HR & Organization', copy: 'People systems, structure, compliance, and workforce planning.', d: '3' },
+  { color: 'var(--gold)', title: 'Executive Careers', copy: 'Career advisory for professionals planning their next leadership move.', d: '4' },
+];
+---
+
+<section class="section compact" id="system">
+  <div class="wrap">
+    <div class="panel advisory">
+      <div class="advisory-top">
+        <div class="section-head reveal" style="margin-bottom:0">
+          <div class="kicker">The Schlager Advisory System&trade;</div>
+          <h2>Every business challenge is connected. So are the solutions.</h2>
+          <p>The work begins with the decision in front of you — then connects the right strategy, leadership, talent, organization, and career support around it. Hover any discipline to see how it links to better decisions.</p>
+        </div>
+        <div class="reveal" data-d="1">
+          <Diagram client:visible />
+        </div>
+      </div>
+      <div class="system-map">
+        {nodes.map((node) => (
+          <a class="system-node reveal" data-d={node.d} href="#contact" style={`--node-color: ${node.color}`}>
+            <strong>{node.title}</strong>
+            <span>{node.copy}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

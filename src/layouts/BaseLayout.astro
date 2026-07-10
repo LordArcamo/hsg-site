@@ -1,0 +1,52 @@
+---
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/libre-franklin';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Schlager Solutions Group | Business Advisory · New Jersey',
+  description = 'Schlager Solutions Group — 25+ years of trusted business advisory for growing New Jersey companies: strategy, executive recruiting, leadership, HR, and executive careers under one relationship.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#f8f5ee" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="page">
+      <slot />
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <script>
+      // Reveal-on-scroll — re-triggers on scroll up AND down, matching the
+      // original page behavior. React islands manage their own `in` state.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !reduce) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((e) => e.target.classList.toggle('in', e.isIntersecting));
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add('in'));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+---
+const links = [
+  { href: '#solutions', label: 'Growth Paths' },
+  { href: '#system', label: 'Advisory System' },
+  { href: '#insights', label: 'Insights' },
+  { href: '#michael', label: 'About Michael' },
+  { href: '#areas', label: 'Locations' },
+];
+---
+
+<header class="topbar" id="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">Schlager Solutions Group<small>Business Advisory · New Jersey</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <a class="button button-primary" href="#contact">Book Strategy Call</a>
+  </div>
+  <span class="topbar-progress" aria-hidden="true"></span>
+</header>
+
+<script>
+  const topbar = document.getElementById('topbar');
+  const onScroll = () => {
+    if (!topbar) return;
+    topbar.classList.toggle('scrolled', window.scrollY > 20);
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    topbar.style.setProperty('--scrollp', String(max > 0 ? Math.min(1, window.scrollY / max) : 0));
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+</script>

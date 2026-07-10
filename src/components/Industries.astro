@@ -1,4 +1,6 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
+
 const industries = [
   { label: 'Healthcare', dot: 'var(--green)' },
   { label: 'Manufacturing', dot: 'var(--blue)' },
@@ -19,9 +21,10 @@ const repeat = 3;
 
 <section class="section" id="industries">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head split reveal">
       <div class="kicker">Industries</div>
       <h2>Built for the industries that power New Jersey business.</h2>
+      <p>From healthcare systems to family-owned manufacturers, we adapt the same disciplined approach to the pressures unique to your industry.</p>
     </div>
   </div>
   <div class="ind-marquee reveal" data-d="1">
@@ -29,15 +32,20 @@ const repeat = 3;
       <div class={r === 1 ? 'ind-row rev' : 'ind-row'}>
         <div class="ind-track">
           {Array.from({ length: repeat }).flatMap(() => row).map((industry) => (
-            <a class="industry" href="#" style={`--dot: ${industry.dot}`}>{industry.label}</a>
+            <a class="industry" href="#contact" style={`--dot: ${industry.dot}`}>{industry.label}</a>
           ))}
         </div>
         <div class="ind-track" aria-hidden="true">
           {Array.from({ length: repeat }).flatMap(() => row).map((industry) => (
-            <a class="industry" href="#" style={`--dot: ${industry.dot}`} tabindex="-1">{industry.label}</a>
+            <a class="industry" href="#contact" style={`--dot: ${industry.dot}`} tabindex="-1">{industry.label}</a>
           ))}
         </div>
       </div>
     ))}
+  </div>
+  <div class="wrap">
+    <div class="section-cta reveal" data-d="2">
+      <a class="button button-secondary" href="#contact">Don't See Your Industry? Let's Talk <ArrowIcon size={15} /></a>
+    </div>
   </div>
 </section>

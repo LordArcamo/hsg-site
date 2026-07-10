@@ -1,4 +1,6 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
+
 const locations = [
   'Bergen County', 'Passaic County', 'Hudson County', 'Essex County', 'Union County', 'Morris County',
   'Clifton', 'Paramus', 'Hackensack', 'Newark', 'Paterson',
@@ -20,8 +22,9 @@ const locations = [
       <h2 style="font-size: clamp(1.8rem,3.2vw,2.8rem)">Proudly serving businesses across Northern New Jersey.</h2>
       <p class="large-copy">Schlager Solutions Group partners with companies throughout Bergen, Passaic, Essex, Hudson, Morris, Union, and surrounding communities.</p>
       <div class="location-links">
-        {locations.map((location) => <a href="#">{location}</a>)}
+        {locations.map((location) => <a href="#contact">{location}</a>)}
       </div>
+      <a class="button button-secondary" href="#contact" style="margin-top:22px">Confirm We Serve Your Area <ArrowIcon size={15} /></a>
     </div>
   </div>
 </section>

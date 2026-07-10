@@ -1,4 +1,6 @@
 ---
+import ArrowIcon from './ArrowIcon.astro';
+
 const steps = [
   { color: 'var(--green)', title: 'Listen', copy: 'Understand your business, goals, and challenges.', d: undefined },
   { color: 'var(--blue)', title: 'Discover', copy: 'Identify the real opportunities and obstacles.', d: '1' },
@@ -10,9 +12,10 @@ const steps = [
 
 <section class="section" id="process">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head split reveal">
       <div class="kicker">The Schlager Advisory Process&trade;</div>
       <h2>Every engagement begins with understanding your business — not selling a service.</h2>
+      <p>A structured five-step path from first conversation to measurable results — adapted to your business, never a rigid script.</p>
     </div>
     <div class="process-grid">
       {steps.map((step, i) => (
@@ -22,6 +25,9 @@ const steps = [
           <p>{step.copy}</p>
         </div>
       ))}
+    </div>
+    <div class="section-cta reveal" data-d="2">
+      <a class="button button-secondary" href="#contact">Begin With a Conversation <ArrowIcon size={15} /></a>
     </div>
   </div>
 </section>

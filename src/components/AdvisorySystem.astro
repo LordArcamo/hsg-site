@@ -1,5 +1,6 @@
 ---
 import Diagram from './react/Diagram.tsx';
+import ArrowIcon from './ArrowIcon.astro';
 
 const nodes = [
   { color: 'var(--green)', title: 'Business Strategy', copy: 'Growth plans, operations, revenue, succession, and practical next steps.', d: undefined },
@@ -30,6 +31,9 @@ const nodes = [
             <span>{node.copy}</span>
           </a>
         ))}
+      </div>
+      <div class="section-cta reveal" data-d="2">
+        <a class="button button-secondary" href="#contact">Talk to Us About Your Situation <ArrowIcon size={15} /></a>
       </div>
     </div>
   </div>

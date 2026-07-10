@@ -14,10 +14,17 @@ const links = [
       <span class="brand-mark">S</span>
       <span class="brand-name">Schlager Solutions Group<small>Business Advisory · New Jersey</small></span>
     </a>
-    <nav class="nav-links" aria-label="Primary navigation">
-      {links.map((link) => <a href={link.href}>{link.label}</a>)}
-    </nav>
-    <a class="button button-primary" href="#contact">Book Strategy Call</a>
+    <div class="nav-menu" id="navMenu">
+      <nav class="nav-links" aria-label="Primary navigation">
+        {links.map((link) => <a href={link.href}>{link.label}</a>)}
+      </nav>
+      <a class="button button-primary" href="#contact">Book Strategy Call</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
   </div>
   <span class="topbar-progress" aria-hidden="true"></span>
 </header>
@@ -33,4 +40,19 @@ const links = [
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
+
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (navToggle && navMenu) {
+    const setOpen = (open: boolean) => {
+      navMenu.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('nav-open', open);
+    };
+    navToggle.addEventListener('click', () => setOpen(!navMenu.classList.contains('open')));
+    navMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 860) setOpen(false); });
+  }
 </script>

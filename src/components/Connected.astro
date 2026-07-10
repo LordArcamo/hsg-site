@@ -1,5 +1,6 @@
 ---
 import Timeline from './react/Timeline.tsx';
+import ArrowIcon from './ArrowIcon.astro';
 ---
 
 <section class="section">
@@ -12,6 +13,7 @@ import Timeline from './react/Timeline.tsx';
         performance. Performance drives growth. Growth creates new challenges. Schlager Solutions Group
         connects those pieces before they become separate problems.
       </p>
+      <a class="button button-secondary" href="#contact" style="margin-top:20px">See Where the Gaps Are <ArrowIcon size={15} /></a>
     </div>
     <div class="reveal" data-d="1">
       <Timeline client:visible />

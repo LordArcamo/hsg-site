@@ -6,12 +6,17 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
   title = 'Schlager Solutions Group | Business Advisory · New Jersey',
   description = 'Schlager Solutions Group — 25+ years of trusted business advisory for growing New Jersey companies: strategy, executive recruiting, leadership, HR, and executive careers under one relationship.',
+  image = '/og-image.png',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(image, Astro.site);
 ---
 
 <!doctype html>
@@ -21,9 +26,56 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="theme-color" content="#f8f5ee" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:site_name" content="Schlager Solutions Group" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Schlager Solutions Group — The Right Decisions Change Everything." />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Structured data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'ProfessionalService',
+      '@id': `${Astro.site}#business`,
+      name: 'Schlager Solutions Group',
+      description,
+      url: String(Astro.site),
+      telephone: '+1-347-665-7733',
+      image: String(ogImageURL),
+      areaServed: [
+        'Bergen County, NJ', 'Passaic County, NJ', 'Hudson County, NJ',
+        'Essex County, NJ', 'Union County, NJ', 'Morris County, NJ',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressRegion: 'NJ',
+        addressCountry: 'US',
+      },
+      makesOffer: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Strategy Advisory' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Executive Recruiting' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Leadership Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'HR Consulting' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Executive Career Guidance' } },
+      ],
+    })} />
   </head>
   <body>
     <div class="page">

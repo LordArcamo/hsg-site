@@ -10,10 +10,10 @@ const categories = ['Business Strategy', 'Leadership', 'Executive Recruiting', '
       <div class="kicker">Insights</div>
       <h2 style="font-size: clamp(1.9rem,3.4vw,3rem)">Practical thinking for growing New Jersey businesses.</h2>
       <p class="large-copy" style="margin-bottom:24px">Business strategy, leadership, executive recruiting, HR, and career guidance written for owners, executives, and HR leaders who want to make better decisions.</p>
-      <a class="button button-primary" href="#" style="align-self:flex-start">Visit the Insights Center <ArrowIcon /></a>
+      <a class="button button-primary" href="#newsletter" style="align-self:flex-start">Get Insights In Your Inbox <ArrowIcon /></a>
     </article>
     <div class="category-list reveal" data-d="1" aria-label="Insight categories">
-      {categories.map((category) => <a href="#">{category}</a>)}
+      {categories.map((category) => <span>{category}</span>)}
     </div>
   </div>
 </section>

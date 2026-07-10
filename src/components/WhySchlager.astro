@@ -1,8 +1,13 @@
+---
+import ArrowIcon from './ArrowIcon.astro';
+---
+
 <section class="section" style="background: var(--soft)">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head split reveal">
       <div class="kicker">Why Schlager</div>
       <h2>One advisor for decisions that don't fit neatly in one box.</h2>
+      <p>Strategy, hiring, leadership, HR, and career guidance — coordinated by one advisor who already knows your business, instead of five separate vendors starting from zero.</p>
     </div>
     <div class="why-grid">
       <article class="why-card reveal" style="--wash: rgba(91,50,150,.13); --ic: var(--purple)">
@@ -20,6 +25,9 @@
         <h3>A Long-Term Partnership</h3>
         <p>Each recommendation supports the next stage of growth — helping leaders build stronger businesses over time.</p>
       </article>
+    </div>
+    <div class="section-cta reveal" data-d="2">
+      <a class="button button-secondary" href="#contact">Start the Conversation <ArrowIcon size={15} /></a>
     </div>
   </div>
 </section>

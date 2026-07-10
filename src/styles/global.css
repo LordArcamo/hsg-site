@@ -263,7 +263,7 @@ h2 {
 
 /* ---------- ADVISORY SYSTEM ---------- */
 .advisory { padding: 60px; overflow: hidden; }
-.advisory-top { display: grid; grid-template-columns: 1fr 1.18fr; gap: 44px; align-items: center; }
+.advisory-top { display: grid; grid-template-columns: 1fr 1.18fr; gap: 44px; align-items: start; }
 .diagram { position: relative; width: 100%; max-width: 600px; margin: 0 auto; aspect-ratio: 1/1; }
 .diagram::before {
   content: ""; position: absolute; inset: 4%; border-radius: 50%;
@@ -295,12 +295,12 @@ h2 {
 .system-node span { color: var(--muted); font-size: 0.9rem; }
 
 /* ---------- CONNECTED / TIMELINE ---------- */
-.connected { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr); gap: 66px; align-items: center; }
+.connected { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr); gap: 66px; align-items: start; }
 .timeline { display: grid; gap: 0; position: relative; }
 .tl-line { position: absolute; left: 31px; top: 26px; bottom: 26px; width: 2px; background: var(--line); border-radius: 2px; }
 .tl-line-fill { position: absolute; left: 0; top: 0; width: 100%; height: 0%; border-radius: 2px;
   background: linear-gradient(180deg, var(--green), var(--blue), var(--purple), var(--orange), var(--gold)); transition: height .18s linear; }
-.timeline-step { position: relative; display: grid; grid-template-columns: 74px 1fr; align-items: center; min-height: 88px; border-bottom: 1px solid var(--line); padding-left: 6px;
+.timeline-step { position: relative; display: grid; grid-template-columns: 74px 1fr; align-items: center; min-height: 68px; border-bottom: 1px solid var(--line); padding-left: 6px;
   opacity: 0; transform: translateX(22px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
 .timeline.in .timeline-step { opacity: 1; transform: none; }
 .timeline.in .timeline-step:nth-child(2){transition-delay:.05s} .timeline.in .timeline-step:nth-child(3){transition-delay:.13s}
@@ -338,7 +338,7 @@ h2 {
 
 /* ---------- MEET MICHAEL — the dark boardroom chapter ---------- */
 .michael {
-  display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr); gap: 60px; align-items: center; padding: 60px;
+  display: grid; grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1fr); gap: 60px; align-items: start; padding: 60px;
   border-color: rgba(25, 16, 38, .9);
   background:
     radial-gradient(900px 400px at 88% 0%, rgba(122, 63, 176, .28), transparent 60%),
@@ -406,27 +406,8 @@ h2 {
 
 /* ---------- AREAS ---------- */
 .serve-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 24px; align-items: stretch; }
-.map-card { min-height: 420px; position: relative; display: grid; place-items: center; overflow: hidden; background: linear-gradient(135deg, rgba(21, 155, 216, 0.08), rgba(91, 50, 150, 0.07)), var(--card); }
-.map-card svg { width: min(280px, 62%); height:auto; filter: drop-shadow(0 24px 40px rgba(48,34,70,.14)); }
-.nj-glow { opacity: 0; transition: opacity 1s ease .3s; }
-.map-card.in .nj-glow { opacity: 1; }
-.nj-shape { stroke-dasharray: 1240; stroke-dashoffset: 1240; }
-.map-card.in .nj-shape { transition: stroke-dashoffset 1.7s var(--ease); stroke-dashoffset: 0; }
-.nj-route { stroke-dashoffset: 0; opacity: 0; }
-.map-card.in .nj-route { animation: routeDraw 3.4s linear .8s infinite; opacity: 1; }
-@keyframes routeDraw { to { stroke-dashoffset: -80; } }
-.pins .core { fill: var(--c); opacity: 0; transform-box: fill-box; transform-origin: center; }
-.pins .ripple { fill: var(--c); opacity: 0; transform-box: fill-box; transform-origin: center; }
-.map-card.in .pins .core { animation: pinIn .55s var(--ease) forwards; }
-.map-card.in .pins .ripple { animation: ripple 2.6s ease-out infinite; }
-.map-card.in .pin:nth-child(1) .core{animation-delay:.8s}  .map-card.in .pin:nth-child(1) .ripple{animation-delay:1.2s}
-.map-card.in .pin:nth-child(2) .core{animation-delay:1.0s} .map-card.in .pin:nth-child(2) .ripple{animation-delay:1.5s}
-.map-card.in .pin:nth-child(3) .core{animation-delay:1.2s} .map-card.in .pin:nth-child(3) .ripple{animation-delay:1.8s}
-.map-card.in .pin:nth-child(4) .core{animation-delay:1.4s} .map-card.in .pin:nth-child(4) .ripple{animation-delay:2.1s}
-.map-card.in .pin:nth-child(5) .core{animation-delay:1.6s} .map-card.in .pin:nth-child(5) .ripple{animation-delay:2.4s}
-.map-card:not(.in) .core, .map-card:not(.in) .ripple { animation: none; }
-@keyframes pinIn { 0%{opacity:0; transform:scale(0)} 60%{transform:scale(1.4)} 100%{opacity:1; transform:scale(1)} }
-@keyframes ripple { 0%{opacity:.5; transform:scale(.7)} 80%{opacity:0} 100%{opacity:0; transform:scale(3)} }
+.map-card { min-height: 420px; position: relative; overflow: hidden; background: var(--card); }
+.map-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: grayscale(.15) contrast(1.02); }
 .location-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .location-links a { padding: 11px 17px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: #4a3f5e; font-weight: 620; font-size:.9rem; transition: border-color .25s, color .25s, transform .25s var(--ease); }
 .location-links a:hover { border-color: var(--purple); color: var(--purple); transform: translateY(-2px); }
@@ -454,6 +435,39 @@ h2 {
 .final-cta .button-secondary:hover { border-color: #fff; }
 .phone { display: inline-flex; align-items: center; min-height: 54px; padding: 0 12px; color: var(--gold); font-family: var(--display); font-weight: 750; letter-spacing: -0.01em; font-size:1.3rem; }
 .phone:hover { text-decoration: underline; text-underline-offset: 6px; }
+
+/* ---------- CONTACT FORM ---------- */
+.contact-layout { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr); gap: 44px; align-items: start; }
+.contact-points { display: grid; gap: 12px; margin: 24px 0; padding: 0; list-style: none; }
+.contact-points li { display: flex; align-items: center; gap: 10px; color: #403d52; font-weight: 640; font-size: .95rem; }
+.contact-points li svg { flex: 0 0 auto; color: var(--green); }
+.contact-phone { display: inline-flex; align-items: center; gap: 9px; min-height: auto; padding: 0; color: var(--purple); font-size: 1.02rem; letter-spacing: normal; }
+.contact-phone svg { flex: 0 0 auto; }
+.contact-card { padding: 32px; }
+
+.lead-form { display: grid; gap: 16px; }
+.lf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.lead-form label { display: grid; gap: 7px; font-size: .84rem; font-weight: 700; color: #352b46; }
+.lead-form label i { font-weight: 500; font-style: normal; color: var(--muted); }
+.lead-form input, .lead-form select, .lead-form textarea {
+  min-height: 50px; padding: 0 16px; border: 1px solid var(--line); border-radius: 10px;
+  font: inherit; font-size: .95rem; font-weight: 500; color: var(--ink); background: #fff;
+  transition: border-color .25s, box-shadow .25s; appearance: none;
+}
+.lead-form textarea { min-height: auto; padding: 12px 16px; resize: vertical; font-family: inherit; }
+.lead-form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23656376' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; padding-right: 40px;
+}
+.lead-form input:focus, .lead-form select:focus, .lead-form textarea:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 4px rgba(91,50,150,.12); }
+.lead-form input.invalid, .lead-form select.invalid { border-color: var(--orange); box-shadow: 0 0 0 4px rgba(255,106,40,.12); }
+.lead-form button { justify-self: start; margin-top: 4px; }
+.lf-note { margin: 0; color: var(--muted); font-size: .78rem; }
+
+.lead-success { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 10px; min-height: 320px; padding: 40px 20px; }
+.lead-success svg { color: var(--green); }
+.lead-success h3 { font-family: var(--display); font-weight: 750; font-size: 1.3rem; color: var(--ink); }
+.lead-success p { color: var(--muted); max-width: 36ch; }
 
 /* ---------- FOOTER ---------- */
 .footer { padding: 64px 0 40px; background: var(--ink-2); color: #fff; }
@@ -540,7 +554,8 @@ h2 {
   .hs-badge span { font-size: .62rem; }
   .path-grid-4, .system-map { grid-template-columns: repeat(2, 1fr); }
   .system-map { grid-template-columns: repeat(3, 1fr); }
-  .advisory-top, .connected, .michael, .story-grid, .insight-layout, .serve-layout { grid-template-columns: 1fr; }
+  .advisory-top, .connected, .michael, .story-grid, .insight-layout, .serve-layout, .contact-layout { grid-template-columns: 1fr; }
+  .lf-row { grid-template-columns: 1fr; }
   .advisory-top { gap: 30px; }
   .portrait { max-width: 420px; margin-inline: auto; }
 }
@@ -589,11 +604,6 @@ h2 {
   h1 .hw > span { transform: none !important; }
   .diagram .edge { stroke-dashoffset: 0 !important; }
   .timeline-step { opacity: 1 !important; transform: none !important; }
-  .nj-glow { opacity: 1 !important; }
-  .nj-shape { stroke-dashoffset: 0 !important; }
-  .pins .core { opacity: 1 !important; transform: none !important; }
-  .pins .ripple { opacity: 0 !important; }
-  .nj-route { animation: none !important; opacity: 1 !important; }
   .hub-ring { opacity: 0 !important; }
   .hs-badge { opacity: 1 !important; transform: rotate(var(--rot, 0deg)) !important; }
   /* marquee falls back to a static wrapped list */

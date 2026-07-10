@@ -3,10 +3,11 @@ import { useEffect, useRef, useState } from 'react';
 interface Props {
   target: number;
   duration?: number;
+  suffix?: string;
 }
 
 /** Animated counter that counts up when scrolled into view and resets when it leaves. */
-export default function CountUp({ target, duration = 1300 }: Props) {
+export default function CountUp({ target, duration = 1300, suffix = '' }: Props) {
   const ref = useRef<HTMLSpanElement>(null);
   const [value, setValue] = useState(0);
 
@@ -46,5 +47,5 @@ export default function CountUp({ target, duration = 1300 }: Props) {
     };
   }, [target, duration]);
 
-  return <span ref={ref}>{value}</span>;
+  return <span ref={ref}>{value}{suffix}</span>;
 }

@@ -21,3 +21,4 @@ pnpm-debug.log*
 
 # local Claude Code permission state (personal, not project config)
 .claude/settings.local.json
+.claude/scheduled_tasks.lock

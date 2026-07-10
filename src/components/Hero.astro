@@ -1,8 +1,15 @@
 ---
 import ArrowIcon from './ArrowIcon.astro';
 import CountUp from './react/CountUp.tsx';
+import RotatingBadge from './react/RotatingBadge.tsx';
 
 const services = ['Business Strategy', 'Executive Recruiting', 'Leadership', 'HR', 'Executive Careers'];
+
+const stats = [
+  { color: 'var(--green)', label: 'Years advising', suffix: '+', target: 25, rot: '-3deg' },
+  { color: 'var(--purple)', label: 'Business focus', value: 'NJ', rot: '2deg' },
+  { color: 'var(--gold)', label: 'Growth paths', target: 5, rot: '-2deg' },
+];
 ---
 
 <section class="hero">
@@ -31,23 +38,24 @@ const services = ['Business Strategy', 'Executive Recruiting', 'Leadership', 'HR
         <a class="button button-secondary" href="#solutions">Explore Solutions</a>
       </div>
     </div>
-    <figure class="hero-visual reveal" data-d="2" style="margin:0" id="heroVisual">
-      <img
-        src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1100&q=80"
-        alt="Michael Schlager advising a group of business owners and executives"
-        loading="eager"
-        onerror="this.closest('.hero-visual').classList.add('img-failed')"
-      />
-      <div class="hv-badge">
-        <span class="dots">
-          <i style="background:var(--green)"></i><i style="background:var(--blue)"></i><i style="background:var(--gold)"></i><i style="background:var(--orange)"></i><i style="background:var(--purple)"></i>
-        </span>
-        One trusted advisor
+    <figure class="hero-visual reveal" data-d="2" id="heroVisual">
+      <div class="hero-visual-frame">
+        <img
+          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1100&q=80"
+          alt="Michael Schlager advising a group of business owners and executives"
+          loading="eager"
+          onerror="this.closest('.hero-visual').classList.add('img-failed')"
+        />
       </div>
-      <div class="hero-stat">
-        <div><strong><CountUp client:visible target={25} />+</strong><span>years</span></div>
-        <div><strong>NJ</strong><span>business focus</span></div>
-        <div><strong><CountUp client:visible target={5} /></strong><span>growth paths</span></div>
+      <RotatingBadge client:load />
+      <div class="hs-badges">
+        {stats.map((stat, i) => (
+          <div class="hs-badge" style={`--stat-c: ${stat.color}; --rot: ${stat.rot}; --i: ${i}`}>
+            <i></i>
+            <strong>{stat.target ? <CountUp client:visible target={stat.target} suffix={stat.suffix} /> : stat.value}</strong>
+            <span>{stat.label}</span>
+          </div>
+        ))}
       </div>
     </figure>
   </div>
